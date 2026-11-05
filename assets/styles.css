@@ -10,8 +10,8 @@
   border-color: #17D3D23;
   color: #ffffff;
 }
-.button:hover { background: #444444; border-color: #444444; }
-.button.outline { background: transparent; color: #1f1f1f; border-color: #1f1f1f; }
-.button.outline:hover { background: #1f1f1f; color: #ffffff; }
+.button:hover { background: #245332; border-color: #245332; }
+.button.outline { background: transparent; color: #173D23; border-color: #1f1f1f; }
+.button.outline:hover { background: #173D23; color: #ffffff; }
 .story-band, .footer, .mobile-nav.open, .hero-art { background: #ffffff; }
 .form input:focus, .form textarea:focus, .form select:focus { border-color: #1f1f1f; }
