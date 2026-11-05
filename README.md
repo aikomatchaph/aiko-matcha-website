@@ -17,8 +17,8 @@ A lightweight, responsive, multi-page website for AIKŌ Matcha. It includes Home
 ## Before publishing
 
 1. Open `assets/script.js`.
-2. Replace `YOUR_EMAIL_HERE` with the email address that should receive inquiries.
-3. Replace `https://www.instagram.com/` with the official AIKŌ Instagram profile URL.
+2. Replace `aikomatchaph@gmail.com` with the email address that should receive inquiries.
+3. Replace `https://www.instagram.com/aikomatchaph?exln=MWJ1NjIweXZlMHRxcg==` with the official AIKŌ Instagram profile URL.
 4. Replace the illustrated placeholder product artwork in `assets/` with your actual product photography if desired. Keep the same filenames (`hinata.svg` and `shinrin.svg`) or update the image paths in the HTML files.
 5. Review product descriptions, prices, shipping terms, and contact details before publishing. Current prices and product descriptions were taken from the publicly visible AIKŌ Shopify catalog at the time this starter was prepared.
 
