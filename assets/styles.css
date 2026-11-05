@@ -6,8 +6,8 @@
 /* Monochrome finish */
 .button,
 .announcement {
-  background: #1f1f1f;
-  border-color: #1f1f1f;
+  background: #173D23;
+  border-color: #17D3D23;
   color: #ffffff;
 }
 .button:hover { background: #444444; border-color: #444444; }
