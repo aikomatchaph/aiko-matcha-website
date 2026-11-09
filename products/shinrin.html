@@ -1,1 +1,360 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f0"><title>Shinrin | AIKŌ Matcha</title><meta name="description" content="Discover thoughtfully sourced Japanese matcha from Yame, Japan at AIKŌ Matcha."><link rel="stylesheet" href="../assets/styles.css"></head><body><div class="announcement">FREE SHIPPING ON ORDERS ₱2,000 AND ABOVE</div><header class="site-header"><div class="nav-wrap"><button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button><nav class="nav-links"><a href="../index.html">Home</a><a href="../shop.html">Shop All</a><a href="../about.html">Our Story</a></nav><a class="brand" href="../index.html">AIKŌ<small>MATCHA</small></a><div class="nav-right"><a href="../contact.html">Contact ↗</a></div></div><nav class="mobile-nav"><a href="../index.html">Home</a><a href="../shop.html">Shop All</a><a href="../about.html">About Aikō</a><a href="../contact.html">Contact</a></nav></header><main class="container"><div class="product-detail"><div class="product-visual"><img src="../assets/shinrin.svg" alt="Shinrin 30g matcha"></div><div class="product-info"><div class="eyebrow">AIKŌ · Japanese matcha · 30g</div><h1>Shinrin</h1><div class="price">₱950.00</div><p>A rich expression of Okumidori from Yame, Japan. Deep umami meets creamy sweetness, with subtle notes of edamame, cacao, and toasted nuts.</p><p><em>Smooth, grounded, and quietly complex.</em></p><span class="tag">Sourced from Yame, Japan</span><p>For product availability and ordering, send us an inquiry. We'll be happy to assist you.</p><a class="button" href="../contact.html?product=shinrin">Inquire about Shinrin</a><p class="note">Orders are handled by inquiry. No online checkout or payment is collected on this website.</p><p><a class="eyebrow" href="../shop.html">← Back to Shop All</a></p></div></div></main><footer class="footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="../index.html">AIKŌ<small>MATCHA</small></a><p>Thoughtfully sourced Japanese matcha from Yame, Japan. A little moment of calm in every cup.</p></div><div><div class="eyebrow">Explore</div><div class="footer-links"><a href="../shop.html">Shop All</a><a href="../about.html">About Aikō</a><a href="../contact.html">Contact</a></div></div><div><div class="eyebrow">Get in touch</div><div class="footer-links"><a href="../contact.html">Product inquiries</a><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></div></div></div><div class="copyright"><span>© <span data-year></span> AIKŌ Matcha. All rights reserved.</span><span>Made for slow, thoughtful moments.</span></div></div></footer><script src="../assets/script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+
+  <title>Shinrin | AIKŌ Matcha</title>
+
+  <meta name="description" content="Discover Shinrin, a refined Okumidori Japanese matcha from Yame, Japan at AIKŌ Matcha.">
+
+  <link rel="stylesheet" href="../assets/styles.css">
+
+  <style>
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: start;
+      padding: 55px 0;
+    }
+
+    /* Swipeable product gallery */
+    .product-gallery {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .product-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .product-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-carousel img {
+      flex: 0 0 100%;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      scroll-snap-align: start;
+      background: #f7f6f0;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .carousel-dots button {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+    }
+
+    .carousel-dots button.active {
+      background: #173D23;
+    }
+
+    /* Product information */
+    .product-info {
+      padding-top: 15px;
+    }
+
+    .product-info h1 {
+      margin: 12px 0;
+    }
+
+    .product-info .price {
+      margin-bottom: 22px;
+    }
+
+    .product-info p {
+      line-height: 1.8;
+    }
+
+    .product-add-button {
+      display: block;
+      width: 100%;
+      margin-top: 25px;
+      padding: 16px 20px;
+      border: 1px solid #173D23;
+      background: #173D23;
+      color: #fff;
+      font: inherit;
+      text-align: center;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .product-add-button:hover {
+      opacity: 0.85;
+    }
+
+    .product-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 12px;
+    }
+
+    /* Centered minimal footer */
+    .site-footer {
+      padding: 25px 15px;
+      text-align: center;
+    }
+
+    .site-footer .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .site-footer .footer-brand img {
+      height: 30px !important;
+      width: auto;
+    }
+
+    .site-footer p {
+      margin: 0;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 0;
+      }
+
+      .product-info {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    FREE SHIPPING ON ORDERS ₱2,000 AND ABOVE
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-wrap">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <a class="brand" href="../index.html">
+        <img
+          src="../assets/aiko-logo.png"
+          alt="Aikō Matcha"
+          style="height:45px;width:auto;display:block;"
+        >
+      </a>
+
+      <a class="cart-link" href="../cart.html" aria-label="Shopping cart">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          width="21" height="21" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span id="cart-count">0</span>
+      </a>
+
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="../index.html">Home</a>
+      <a href="../shop.html">Shop All</a>
+      <a href="../about.html">About Aikō</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- PRODUCT DETAILS -->
+  <main class="container">
+
+    <div class="product-detail">
+
+      <div class="product-gallery">
+
+        <div class="product-carousel" id="shinrinCarousel">
+          <img src="../assets/Shinrin.JPG" alt="Shinrin Japanese matcha">
+          <img src="../assets/IMG_6846.jpeg" alt="Shinrin matcha product detail">
+          <img src="../assets/IMG_6858.jpeg" alt="Shinrin matcha presentation">
+          <img src="../assets/IMG_6860.jpeg" alt="Shinrin matcha">
+          <img src="../assets/IMG_6871.jpeg" alt="Shinrin matcha product">
+        </div>
+
+        <div class="carousel-dots" id="shinrinDots">
+          <button class="active" aria-label="Image 1"></button>
+          <button aria-label="Image 2"></button>
+          <button aria-label="Image 3"></button>
+          <button aria-label="Image 4"></button>
+          <button aria-label="Image 5"></button>
+        </div>
+
+      </div>
+
+      <div class="product-info">
+
+        <h1>Shinrin</h1>
+
+        <div class="price">₱950.00</div>
+
+        <p>
+          A rich expression of Okumidori from Yame, Japan.
+          Deep umami meets creamy sweetness, with subtle notes
+          of edamame, cacao, and toasted nuts.
+        </p>
+
+        <p><em>Smooth, grounded, and quietly complex.</em></p>
+
+        <span class="tag">Sourced from Yame, Japan</span>
+
+        <button
+          class="product-add-button"
+          type="button"
+          onclick="addShinrinToCart()"
+        >
+          Add to Cart
+        </button>
+
+        <p class="product-note">
+          Shinrin · 30g
+        </p>
+
+        <p>
+          <a class="eyebrow" href="../shop.html">
+            ← Back to Shop All
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <a href="../index.html" class="footer-brand">
+        <img
+          src="../assets/aiko-logo.png"
+          alt="Aikō Matcha"
+          style="height:42px;width:auto;"
+        >
+      </a>
+
+      <p>AIKŌ — The art of appreciation.</p>
+
+      <p>
+        © <span data-year></span> AIKŌ Matcha
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- ADD TO CART -->
+  <script>
+    function addShinrinToCart() {
+      let cart = [];
+
+      try {
+        cart = JSON.parse(localStorage.getItem('aikoCart') || '[]');
+      } catch (error) {
+        cart = [];
+      }
+
+      const existingItem = cart.find(item => item.name === 'Shinrin');
+
+      if (existingItem) {
+        existingItem.quantity = Number(existingItem.quantity || 0) + 1;
+      } else {
+        cart.push({
+          name: 'Shinrin',
+          price: 950,
+          quantity: 1
+        });
+      }
+
+      localStorage.setItem('aikoCart', JSON.stringify(cart));
+
+      if (typeof updateCartCount === 'function') {
+        updateCartCount();
+      } else {
+        const count = cart.reduce(
+          (total, item) => total + Number(item.quantity || 0), 0
+        );
+
+        const cartCount = document.getElementById('cart-count');
+        if (cartCount) cartCount.textContent = count;
+      }
+
+      alert('Shinrin has been added to your cart!');
+    }
+  </script>
+
+  <!-- IMAGE CAROUSEL -->
+  <script>
+    const carousel = document.getElementById('shinrinCarousel');
+    const dots = document.querySelectorAll('#shinrinDots button');
+
+    function updateDots() {
+      const index = Math.round(
+        carousel.scrollLeft / carousel.clientWidth
+      );
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    carousel.addEventListener('scroll', updateDots);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        carousel.scrollTo({
+          left: index * carousel.clientWidth,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <script src="../assets/script.js" defer></script>
+
+</body>
+</html>
+Gumawa
+Sumulat sa Nicole Anciano
