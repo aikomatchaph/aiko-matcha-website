@@ -94,17 +94,37 @@
       outline: 1px solid #173D23;
     }
 
-    .shipping-option,
-    .payment-option {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 15px;
-      border: 1px solid #e1e1da;
-      margin-bottom: 10px;
-      cursor: pointer;
-      background: white;
-    }
+  .shipping-option,
+.payment-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #e1e1da;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: white;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.shipping-option input,
+.payment-option input {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.shipping-option .option-info {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.shipping-option .option-price {
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-left: auto;
+}
 
     .shipping-option:has(input:checked),
     .payment-option:has(input:checked) {
@@ -141,14 +161,18 @@
       white-space: nowrap;
     }
 
-    .pickup-note {
-      background: #f7f6f0;
-      padding: 12px;
-      margin-top: 9px;
-      font-size: 11px;
-      line-height: 1.7;
-      color: #555;
-    }
+   .pickup-note {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: #f7f6f0;
+  font-size: 11px;
+  line-height: 1.7;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
 
     .payment-qr {
       display: none;
