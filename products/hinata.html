@@ -1,1 +1,258 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f6f0"><title>Hinata | AIKŌ Matcha</title><meta name="description" content="Discover thoughtfully sourced Japanese matcha from Yame, Japan at AIKŌ Matcha."><link rel="stylesheet" href="../assets/styles.css"></head><body><div class="announcement">FREE SHIPPING ON ORDERS ₱2,000 AND ABOVE</div><header class="site-header"><div class="nav-wrap"><button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button><nav class="nav-links"><a href="../index.html">Home</a><a href="../shop.html">Shop All</a><a href="../about.html">Our Story</a></nav><a class="brand" href="../index.html">AIKŌ<small>MATCHA</small></a><div class="nav-right"><a href="../contact.html">Contact ↗</a></div></div><nav class="mobile-nav"><a href="../index.html">Home</a><a href="../shop.html">Shop All</a><a href="../about.html">About Aikō</a><a href="../contact.html">Contact</a></nav></header><main class="container"><div class="product-detail"><div class="product-visual"><img src="../assets/hinata.svg" alt="Hinata 30g matcha"></div><div class="product-info"><div class="eyebrow">AIKŌ · Japanese matcha · 30g</div><h1>Hinata</h1><div class="price">₱1,250.00</div><p>A refined expression of Saemidori from Yame, Japan — rich and smooth, with a naturally sweet character and deep, satisfying umami.</p><p><em>Rich yet gentle.</em></p><span class="tag">Sourced from Yame, Japan</span><p>For product availability and ordering, send us an inquiry. We'll be happy to assist you.</p><a class="button" href="../contact.html?product=hinata">Inquire about Hinata</a><p class="note">Orders are handled by inquiry. No online checkout or payment is collected on this website.</p><p><a class="eyebrow" href="../shop.html">← Back to Shop All</a></p></div></div></main><footer class="footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="../index.html">AIKŌ<small>MATCHA</small></a><p>Thoughtfully sourced Japanese matcha from Yame, Japan. A little moment of calm in every cup.</p></div><div><div class="eyebrow">Explore</div><div class="footer-links"><a href="../shop.html">Shop All</a><a href="../about.html">About Aikō</a><a href="../contact.html">Contact</a></div></div><div><div class="eyebrow">Get in touch</div><div class="footer-links"><a href="../contact.html">Product inquiries</a><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></div></div></div><div class="copyright"><span>© <span data-year></span> AIKŌ Matcha. All rights reserved.</span><span>Made for slow, thoughtful moments.</span></div></div></footer><script src="../assets/script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+
+  <title>Hinata | AIKŌ Matcha</title>
+
+  <meta name="description" content="Discover Hinata, a refined Saemidori Japanese matcha from Yame, Japan at AIKŌ Matcha.">
+
+  <link rel="stylesheet" href="../assets/styles.css">
+
+  <style>
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: start;
+      padding: 55px 0;
+    }
+
+    .product-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .product-gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #f7f6f0;
+    }
+
+    .product-info {
+      padding-top: 15px;
+    }
+
+    .product-info h1 {
+      margin: 12px 0;
+    }
+
+    .product-info .price {
+      margin-bottom: 22px;
+    }
+
+    .product-info p {
+      line-height: 1.8;
+    }
+
+    .product-add-button {
+      display: block;
+      width: 100%;
+      margin-top: 25px;
+      padding: 16px 20px;
+      border: 1px solid #173D23;
+      background: #173D23;
+      color: #fff;
+      font: inherit;
+      text-align: center;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .product-add-button:hover {
+      opacity: 0.85;
+    }
+
+    .product-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 0;
+      }
+
+      .product-info {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    FREE SHIPPING ON ORDERS ₱2,000 AND ABOVE
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-wrap">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <a class="brand" href="../index.html">
+        <img
+          src="../assets/aiko-logo.png"
+          alt="Aikō Matcha"
+          style="height:45px;width:auto;display:block;"
+        >
+      </a>
+
+      <a class="cart-link" href="../cart.html" aria-label="Shopping cart">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          width="21" height="21" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span id="cart-count">0</span>
+      </a>
+
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="../index.html">Home</a>
+      <a href="../shop.html">Shop All</a>
+      <a href="../about.html">About Aikō</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- PRODUCT DETAILS -->
+  <main class="container">
+
+    <div class="product-detail">
+
+      <div class="product-gallery">
+        <img src="../assets/Hinata.JPG" alt="Hinata Japanese matcha">
+        <img src="../assets/IMG_6809.jpeg" alt="Hinata matcha product detail">
+        <img src="../assets/IMG_6816.jpeg" alt="Hinata matcha presentation">
+        <img src="../assets/IMG_6817.jpeg" alt="Hinata matcha">
+      </div>
+
+      <div class="product-info">
+
+        <div class="eyebrow">
+          AIKŌ · Japanese matcha · 30g
+        </div>
+
+        <h1>Hinata</h1>
+
+        <div class="price">₱1,250.00</div>
+
+        <p>
+          A refined expression of Saemidori from Yame, Japan —
+          rich and smooth, with a naturally sweet character and
+          deep, satisfying umami.
+        </p>
+
+        <p><em>Rich yet gentle.</em></p>
+
+        <span class="tag">Sourced from Yame, Japan</span>
+
+        <button
+          class="product-add-button"
+          type="button"
+          onclick="addHinataToCart()"
+        >
+          Add to Cart
+        </button>
+
+        <p class="product-note">
+          Hinata · 30g
+        </p>
+
+        <p>
+          <a class="eyebrow" href="../shop.html">
+            ← Back to Shop All
+          </a>
+        </p>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <a href="../index.html" class="footer-brand">
+        <img
+          src="../assets/aiko-logo.png"
+          alt="Aikō Matcha"
+          style="height:42px;width:auto;"
+        >
+      </a>
+
+      <p>AIKŌ — The art of appreciation.</p>
+
+      <p>
+        © <span data-year></span> AIKŌ Matcha
+      </p>
+
+    </div>
+  </footer>
+
+  <script>
+    function addHinataToCart() {
+      let cart = [];
+
+      try {
+        cart = JSON.parse(localStorage.getItem('aikoCart') || '[]');
+      } catch (error) {
+        cart = [];
+      }
+
+      const existingItem = cart.find(item => item.name === 'Hinata');
+
+      if (existingItem) {
+        existingItem.quantity = Number(existingItem.quantity || 0) + 1;
+      } else {
+        cart.push({
+          name: 'Hinata',
+          price: 1250,
+          quantity: 1
+        });
+      }
+
+      localStorage.setItem('aikoCart', JSON.stringify(cart));
+
+      if (typeof updateCartCount === 'function') {
+        updateCartCount();
+      } else {
+        const count = cart.reduce(
+          (total, item) => total + Number(item.quantity || 0), 0
+        );
+        const cartCount = document.getElementById('cart-count');
+        if (cartCount) cartCount.textContent = count;
+      }
+
+      alert('Hinata has been added to your cart!');
+    }
+  </script>
+
+  <script src="../assets/script.js" defer></script>
+
+</body>
+</html>
