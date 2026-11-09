@@ -725,3 +725,19 @@ h3 {
   }
 
 }
+.site-header .cart-link {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 5px;
+  color: #173D23;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: .05em;
+}
+
+.site-header .cart-link svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
