@@ -7,6 +7,44 @@
   <title>Shop All | AIKŌ Matcha</title>
   <meta name="description" content="Discover thoughtfully sourced Japanese matcha from Yame, Japan at AIKŌ Matcha.">
   <link rel="stylesheet" href="assets/styles.css">
+
+  <style>
+    .add-cart-btn {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px 10px;
+      background: #173D23;
+      color: #fff;
+      border: 1px solid #173D23;
+      font-size: 10px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-cart-btn:hover {
+      background: #fff;
+      color: #173D23;
+    }
+
+    .cart-message {
+      font-size: 12px;
+      color: #173D23;
+      margin-top: 8px;
+      min-height: 16px;
+    }
+
+    .product-meta {
+      display: block;
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  </style>
 </head>
 
 <body>
@@ -27,8 +65,11 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <a class="brand" href="index.html" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2;">
-        <img src="assets/aiko-logo.png" alt="Aikō Matcha" style="height:45px; width:auto; display:block;">
+      <a class="brand" href="index.html"
+         style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2;">
+        <img src="assets/aiko-logo.png"
+             alt="Aikō Matcha"
+             style="height:45px; width:auto; display:block;">
       </a>
 
     </div>
@@ -56,37 +97,61 @@
 
         <!-- HINATA -->
         <article class="product-card">
+
           <a class="product-image" href="products/hinata.html">
             <img src="assets/Hinata.JPG" alt="Hinata matcha">
           </a>
 
           <div class="product-meta">
-            <div>
-              <h3>Hinata (30g)</h3>
-              <div class="price">₱1,250.00</div>
+
+            <div class="product-info">
+              <div>
+                <h3>Hinata (30g)</h3>
+                <div class="price">₱1,250.00</div>
+              </div>
             </div>
 
+            <button class="add-cart-btn"
+              onclick="addToCart('Hinata (30g)', 1250)">
+              ADD TO CART
+            </button>
+
+            <div id="hinata-message" class="cart-message"></div>
+
             <a class="eyebrow" href="products/hinata.html">
-              View details
+              View details ↗
             </a>
+
           </div>
         </article>
 
         <!-- SHINRIN -->
         <article class="product-card">
+
           <a class="product-image" href="products/shinrin.html">
             <img src="assets/Shinrin.JPG" alt="Shinrin matcha">
           </a>
 
           <div class="product-meta">
-            <div>
-              <h3>Shinrin (30g)</h3>
-              <div class="price">₱950.00</div>
+
+            <div class="product-info">
+              <div>
+                <h3>Shinrin (30g)</h3>
+                <div class="price">₱950.00</div>
+              </div>
             </div>
 
+            <button class="add-cart-btn"
+              onclick="addToCart('Shinrin (30g)', 950)">
+              ADD TO CART
+            </button>
+
+            <div id="shinrin-message" class="cart-message"></div>
+
             <a class="eyebrow" href="products/shinrin.html">
-              View details
+              View details ↗
             </a>
+
           </div>
         </article>
 
@@ -128,7 +193,7 @@
           <div class="footer-links">
             <a href="contact.html">Product inquiries</a>
             <a href="https://www.instagram.com/" target="_blank" rel="noopener">
-              Instagram
+              Instagram ↗
             </a>
           </div>
         </div>
@@ -142,6 +207,33 @@
 
     </div>
   </footer>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('aikoCart') || '[]');
+
+      const existing = cart.find(item => item.name === name);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          name: name,
+          price: price,
+          quantity: 1
+        });
+      }
+
+      localStorage.setItem('aikoCart', JSON.stringify(cart));
+
+      const messageId = name.startsWith('Hinata')
+        ? 'hinata-message'
+        : 'shinrin-message';
+
+      document.getElementById(messageId).textContent =
+        'Added to cart ✓';
+    }
+  </script>
 
   <script src="assets/script.js"></script>
 
