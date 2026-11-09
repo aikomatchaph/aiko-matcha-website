@@ -5,67 +5,102 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f7f6f0">
+
   <title>Home | AIKŌ Matcha</title>
+
   <meta name="description" content="Discover thoughtfully sourced Japanese matcha from Yame, Japan at AIKŌ Matcha.">
+
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body>
 
+  <!-- ANNOUNCEMENT BAR -->
   <div class="announcement">
     FREE SHIPPING ON ORDERS ₱2,000 AND ABOVE
   </div>
 
+  <!-- HEADER -->
   <header class="site-header">
-  <div class="nav-wrap" style="position: relative;">
 
-      <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    <div class="nav-wrap">
 
-     <nav class="nav-links">
-  <a href="index.html">Home</a>
-  <a href="shop.html">Shop All</a>
-  <a href="about.html">Our Story</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <!-- HAMBURGER MENU -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
 
-     <a class="brand" href="index.html" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2;">
-  <img src="assets/aiko-logo.png" alt="Aikō Matcha" style="height: 45px; width: auto; display: block;">
-</a>
+      <!-- CENTER LOGO -->
+      <a class="brand" href="index.html">
+        <img
+          src="assets/aiko-logo.png"
+          alt="Aikō Matcha"
+          style="height:45px;width:auto;display:block;"
+        >
+      </a>
+
+      <!-- SHOPPING BAG -->
+      <a class="cart-link" href="cart.html">
+        BAG (<span id="cart-count">0</span>)
+      </a>
 
     </div>
 
+    <!-- DROPDOWN MENU -->
     <nav class="mobile-nav">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop All</a>
       <a href="about.html">About Aikō</a>
       <a href="contact.html">Contact</a>
     </nav>
+
   </header>
 
+
+  <!-- MAIN CONTENT -->
   <main>
 
     <!-- HERO SECTION -->
     <section class="hero">
 
-      <!-- VIDEO ABOVE THE INTRODUCTION -->
-  
-<section class="hero">
+      <!-- HERO VIDEO -->
+      <div class="hero-art">
 
-  <div class="hero-art">
-   <video autoplay muted loop playsinline
-  style="width:100vw;max-width:none;height:520px;position:relative;left:50%;transform:translateX(-50%);z-index:1;object-fit:cover;display:block;"
-  aria-label="AIKŌ Matcha video">
-      <source src="assets/Aiko-compressed.MP4" type="video/mp4">
-    </video>
-  </div>
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          style="width:100vw;max-width:none;height:520px;position:relative;left:50%;transform:translateX(-50%);z-index:1;object-fit:cover;display:block;"
+          aria-label="AIKŌ Matcha video"
+        >
+          <source src="assets/Aiko-compressed.MP4" type="video/mp4">
+        </video>
 
-  <div class="hero-copy">
- <h1>A little moment<br>of calm.</h1>
-    <p class="lead">Discover thoughtfully sourced matcha, made for the everyday ritual of slowing down and savoring the moment.</p>
-    <a class="button" href="shop.html">Explore the collection</a>
-  </div>
+      </div>
 
-</section>
+      <!-- HERO TEXT -->
+      <div class="hero-copy">
+
+        <h1>A little moment<br>of calm.</h1>
+
+        <p class="lead">
+          Discover thoughtfully sourced matcha, made for the everyday ritual of slowing down and savoring the moment.
+        </p>
+
+        <a class="button" href="shop.html">
+          Explore the collection
+        </a>
+
+      </div>
+
+    </section>
+
 
     <!-- STORY SECTION -->
     <section class="story-band">
@@ -86,6 +121,7 @@
 
   </main>
 
+
   <!-- FOOTER -->
   <footer class="footer">
 
@@ -93,13 +129,16 @@
 
       <div class="footer-grid">
 
+        <!-- BRAND -->
         <div>
 
-         <a class="brand" href="index.html">
-  <img src="assets/aiko-logo.png"
-       alt="Aikō Matcha"
-       style="height: 35px; width: auto; display: block;">
-</a>
+          <a class="brand" href="index.html">
+            <img
+              src="assets/aiko-logo.png"
+              alt="Aikō Matcha"
+              style="height:35px;width:auto;display:block;"
+            >
+          </a>
 
           <p>
             Thoughtfully sourced matcha from Yame, Japan. A little moment of calm in every cup.
@@ -107,6 +146,8 @@
 
         </div>
 
+
+        <!-- EXPLORE -->
         <div>
 
           <div class="eyebrow">Explore</div>
@@ -119,19 +160,30 @@
 
         </div>
 
+
+        <!-- CONTACT -->
         <div>
 
           <div class="eyebrow">Get in touch</div>
 
           <div class="footer-links">
             <a href="contact.html">Product inquiries</a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram </a>
+
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              Instagram
+            </a>
           </div>
 
         </div>
 
       </div>
 
+
+      <!-- COPYRIGHT -->
       <div class="copyright">
 
         <span>
@@ -148,8 +200,9 @@
 
   </footer>
 
+
+  <!-- JAVASCRIPT -->
   <script src="assets/script.js" defer></script>
 
 </body>
 </html>
-
