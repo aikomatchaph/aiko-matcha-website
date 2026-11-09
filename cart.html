@@ -1,0 +1,463 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+
+  <title>Your Bag | AIKŌ Matcha</title>
+  <meta name="description" content="Review your AIKŌ Matcha selections.">
+
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <style>
+    .cart-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    .cart-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .cart-heading h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin: 12px 0;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 25px;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #e5e5df;
+    }
+
+    .cart-item-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: #173D23;
+      margin-bottom: 7px;
+    }
+
+    .cart-item-price {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid #deded7;
+      padding: 7px 12px;
+    }
+
+    .quantity-control button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #173D23;
+      padding: 0 4px;
+    }
+
+    .quantity-control span {
+      min-width: 18px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .cart-item-total {
+      text-align: right;
+      min-width: 100px;
+      color: #173D23;
+      font-size: 14px;
+    }
+
+    .remove-item {
+      display: block;
+      margin-top: 8px;
+      margin-left: auto;
+      border: none;
+      background: none;
+      color: #888;
+      text-decoration: underline;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .cart-summary {
+      max-width: 380px;
+      margin: 35px 0 0 auto;
+    }
+
+    .subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #e5e5df;
+      color: #173D23;
+    }
+
+    .subtotal-row strong {
+      font-size: 18px;
+    }
+
+    .cart-note {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.7;
+      margin: 15px 0 25px;
+    }
+
+    .cart-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-actions .button {
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .continue-shopping {
+      text-align: center;
+      color: #173D23;
+      font-size: 12px;
+      text-decoration: underline;
+      margin-top: 15px;
+      display: inline-block;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .empty-cart h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      color: #173D23;
+      margin-bottom: 12px;
+    }
+
+    .empty-cart p {
+      color: #777;
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .cart-page {
+        padding: 45px 20px 75px;
+      }
+
+      .cart-item {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .cart-item-info {
+        grid-column: 1 / -1;
+      }
+
+      .cart-item-total {
+        min-width: auto;
+      }
+
+      .quantity-control {
+        width: fit-content;
+      }
+
+      .cart-summary {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement">
+    FREE SHIPPING ON ORDERS ₱2,000 AND ABOVE
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="nav-wrap">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <a class="brand" href="index.html">
+        <img
+          src="assets/aiko-logo.png"
+          alt="Aikō Matcha"
+          style="height:45px;width:auto;display:block;"
+        >
+      </a>
+
+      <a class="cart-link" href="cart.html">
+        BAG (<span id="cart-count">0</span>)
+      </a>
+
+    </div>
+
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop All</a>
+      <a href="about.html">About Aikō</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+
+  <!-- CART CONTENT -->
+  <main class="cart-page">
+
+    <div class="cart-heading">
+      <div class="eyebrow">Your selections</div>
+      <h1>Your bag.</h1>
+    </div>
+
+    <div id="cart-content"></div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <a class="brand" href="index.html">
+            <img
+              src="assets/aiko-logo.png"
+              alt="Aikō Matcha"
+              style="height:35px;width:auto;display:block;"
+            >
+          </a>
+
+          <p>
+            Thoughtfully sourced Japanese matcha from Yame, Japan. A little moment of calm in every cup.
+          </p>
+        </div>
+
+        <div>
+          <div class="eyebrow">Explore</div>
+          <div class="footer-links">
+            <a href="shop.html">Shop All</a>
+            <a href="about.html">About Aikō</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Get in touch</div>
+          <div class="footer-links">
+            <a href="contact.html">Product inquiries</a>
+            <a href="https://www.instagram.com/aikomatchaph/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        <span>
+          © <span data-year></span> AIKŌ Matcha. All rights reserved.
+        </span>
+
+        <span>Made for slow, thoughtful moments.</span>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="assets/script.js" defer></script>
+
+  <script>
+    const CART_KEY = 'aikoCart';
+
+    function getCartItems() {
+      try {
+        return JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveCartItems(items) {
+      localStorage.setItem(CART_KEY, JSON.stringify(items));
+      renderCart();
+    }
+
+    function formatPrice(price) {
+      return new Intl.NumberFormat('en-PH', {
+        style: 'currency',
+        currency: 'PHP'
+      }).format(price);
+    }
+
+    function renderCart() {
+      const cart = getCartItems();
+      const container = document.getElementById('cart-content');
+
+      const itemCount = cart.reduce(
+        (total, item) => total + Number(item.quantity || 0), 0
+      );
+
+      document.querySelectorAll('#cart-count').forEach(element => {
+        element.textContent = itemCount;
+      });
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart">
+            <h2>Your bag is empty.</h2>
+            <p>It looks like you haven't found your matcha just yet.</p>
+            <a href="shop.html" class="button">Explore our matcha</a>
+          </div>
+        `;
+        return;
+      }
+
+      let subtotal = 0;
+
+      const itemsHTML = cart.map((item, index) => {
+        const price = Number(item.price) || 0;
+        const quantity = Math.max(1, Number(item.quantity) || 1);
+        const itemTotal = price * quantity;
+
+        subtotal += itemTotal;
+
+        return `
+          <div class="cart-item">
+
+            <div class="cart-item-info">
+              <div class="cart-item-name">${escapeHTML(item.name)}</div>
+              <div class="cart-item-price">${formatPrice(price)} each</div>
+            </div>
+
+            <div class="quantity-control">
+              <button type="button" data-action="decrease" data-index="${index}" aria-label="Decrease quantity">−</button>
+              <span>${quantity}</span>
+              <button type="button" data-action="increase" data-index="${index}" aria-label="Increase quantity">+</button>
+            </div>
+
+            <div class="cart-item-total">
+              <strong>${formatPrice(itemTotal)}</strong>
+              <button
+                type="button"
+                class="remove-item"
+                data-action="remove"
+                data-index="${index}"
+              >
+                Remove
+              </button>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="cart-items">
+          ${itemsHTML}
+        </div>
+
+        <div class="cart-summary">
+
+          <div class="subtotal-row">
+            <span>Subtotal</span>
+            <strong>${formatPrice(subtotal)}</strong>
+          </div>
+
+          <p class="cart-note">
+            Shipping and any applicable fees will be calculated at checkout.
+          </p>
+
+          <div class="cart-actions">
+            <a href="checkout.html" class="button">
+              Proceed to checkout
+            </a>
+          </div>
+
+          <div style="text-align:center;">
+            <a href="shop.html" class="continue-shopping">
+              Continue shopping
+            </a>
+          </div>
+
+        </div>
+      `;
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      })[character]);
+    }
+
+    document.getElementById('cart-content').addEventListener('click', function(event) {
+      const button = event.target.closest('[data-action]');
+
+      if (!button) return;
+
+      const action = button.dataset.action;
+      const index = Number(button.dataset.index);
+      const cart = getCartItems();
+
+      if (!cart[index]) return;
+
+      if (action === 'increase') {
+        cart[index].quantity = Number(cart[index].quantity || 1) + 1;
+      }
+
+      if (action === 'decrease') {
+        cart[index].quantity = Number(cart[index].quantity || 1) - 1;
+
+        if (cart[index].quantity <= 0) {
+          cart.splice(index, 1);
+        }
+      }
+
+      if (action === 'remove') {
+        cart.splice(index, 1);
+      }
+
+      saveCartItems(cart);
+    });
+
+    renderCart();
+  </script>
+
+</body>
+</html>
