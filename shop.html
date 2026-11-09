@@ -44,7 +44,58 @@
       justify-content: space-between;
       align-items: flex-start;
     }
-  </style>
+  .cart-section {
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 700px;
+  background: #fff;
+  border: 1px solid #e5e5df;
+}
+
+.cart-section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e5df;
+  font-size: 13px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  background: #173D23;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.checkout-btn:hover {
+  background: #285333;
+}
+
+.empty-cart {
+  font-size: 13px;
+  color: #777;
+}
+Gumawa
+Sumulat sa Nicole Anciano
+</style>
 </head>
 
 <body>
@@ -155,7 +206,25 @@
           </div>
         </article>
 
+     </div>
+
+      <!-- CART SUMMARY -->
+      <div class="cart-section" id="cart-section">
+        <h2>Your Cart</h2>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-total">
+          <span>Subtotal</span>
+          <span id="cart-total">₱0.00</span>
+        </div>
+
+        <a href="checkout.html" class="checkout-btn"
+           id="checkout-btn" style="display:none;">
+          PROCEED TO CHECKOUT
+        </a>
       </div>
+
     </section>
 
   </main>
@@ -209,31 +278,75 @@
   </footer>
 
   <script>
-    function addToCart(name, price) {
-      let cart = JSON.parse(localStorage.getItem('aikoCart') || '[]');
+  function getCart() {
+    return JSON.parse(localStorage.getItem('aikoCart') || '[]');
+  }
 
-      const existing = cart.find(item => item.name === name);
+  function addToCart(name, price) {
+    let cart = getCart();
 
-      if (existing) {
-        existing.quantity += 1;
-      } else {
-        cart.push({
-          name: name,
-          price: price,
-          quantity: 1
-        });
-      }
+    const existing = cart.find(item => item.name === name);
 
-      localStorage.setItem('aikoCart', JSON.stringify(cart));
-
-      const messageId = name.startsWith('Hinata')
-        ? 'hinata-message'
-        : 'shinrin-message';
-
-      document.getElementById(messageId).textContent =
-        'Added to cart ✓';
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        quantity: 1
+      });
     }
-  </script>
+
+    localStorage.setItem('aikoCart', JSON.stringify(cart));
+
+    const messageId = name.startsWith('Hinata')
+      ? 'hinata-message'
+      : 'shinrin-message';
+
+    document.getElementById(messageId).textContent =
+      'Added to cart ✓';
+
+    renderCart();
+  }
+
+  function renderCart() {
+    const cart = getCart();
+    const itemsContainer = document.getElementById('cart-items');
+    const totalElement = document.getElementById('cart-total');
+    const checkoutButton = document.getElementById('checkout-btn');
+
+    let total = 0;
+
+    if (cart.length === 0) {
+      itemsContainer.innerHTML =
+        '<p class="empty-cart">Your cart is currently empty.</p>';
+
+      checkoutButton.style.display = 'none';
+    } else {
+      itemsContainer.innerHTML = cart.map(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        return `
+          <div class="cart-item">
+            <span>${item.name} × ${item.quantity}</span>
+            <span>₱${subtotal.toLocaleString('en-PH', {
+              minimumFractionDigits: 2
+            })}</span>
+          </div>
+        `;
+      }).join('');
+
+      checkoutButton.style.display = 'block';
+    }
+
+    totalElement.textContent = '₱' + total.toLocaleString('en-PH', {
+      minimumFractionDigits: 2
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>
 
   <script src="assets/script.js"></script>
 
