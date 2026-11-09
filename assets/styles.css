@@ -15,3 +15,81 @@
 .button.outline:hover { background: #173D23; color: #ffffff; }
 .story-band, .footer, .mobile-nav.open, .hero-art { background: #ffffff; }
 .form input:focus, .form textarea:focus, .form select:focus { border-color: #173D23; }
+/* AIKO STANDARD HEADER */
+
+.nav-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 15px 28px;
+}
+
+.menu-toggle {
+  display: block;
+  justify-self: start;
+  padding: 0;
+  cursor: pointer;
+  font-size: 23px;
+  color: #173D23;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-wrap .brand {
+  grid-column: 2;
+  justify-self: center;
+  display: block;
+  line-height: 0;
+}
+
+.cart-link {
+  grid-column: 3;
+  justify-self: end;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #173D23;
+  white-space: nowrap;
+}
+
+.mobile-nav {
+  display: none;
+  padding: 20px 28px;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.mobile-nav.open {
+  display: grid;
+  gap: 16px;
+}
+
+.mobile-nav a {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #173D23;
+}
+
+@media (max-width: 760px) {
+  .nav-wrap {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 13px 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .cart-link {
+    font-size: 9px;
+  }
+}
+Gumawa
+Sumulat sa Nicole Anciano
