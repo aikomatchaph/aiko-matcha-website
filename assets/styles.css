@@ -747,7 +747,7 @@ h3 {
 
 /* Smaller centered header logo across all pages */
 .site-header .brand img {
-  height: 32px !important;
+  height: 30px !important;
   width: auto !important;
   max-width: 150px;
   display: block;
