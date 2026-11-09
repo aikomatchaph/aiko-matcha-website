@@ -21,18 +21,51 @@
     }
 
     .product-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+  width: 100%;
+  overflow: hidden;
+}
 
-    .product-gallery img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #f7f6f0;
-    }
+.product-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.product-carousel img {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  scroll-snap-align: start;
+  background: #f7f6f0;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.carousel-dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.carousel-dots button.active {
+  background: #173D23;
+}
 
     .product-info {
       padding-top: 15px;
@@ -144,11 +177,20 @@
     <div class="product-detail">
 
       <div class="product-gallery">
-        <img src="../assets/Hinata.JPG" alt="Hinata Japanese matcha">
-        <img src="../assets/IMG_6809.jpeg" alt="Hinata matcha product detail">
-        <img src="../assets/IMG_6816.jpeg" alt="Hinata matcha presentation">
-        <img src="../assets/IMG_6817.jpeg" alt="Hinata matcha">
-      </div>
+  <div class="product-carousel" id="hinataCarousel">
+    <img src="../assets/Hinata.JPG" alt="Hinata Japanese matcha">
+    <img src="../assets/IMG_6809.jpeg" alt="Hinata matcha product detail">
+    <img src="../assets/IMG_6816.jpeg" alt="Hinata matcha presentation">
+    <img src="../assets/IMG_6817.jpeg" alt="Hinata matcha">
+  </div>
+
+  <div class="carousel-dots" id="hinataDots">
+    <button class="active" aria-label="Image 1"></button>
+    <button aria-label="Image 2"></button>
+    <button aria-label="Image 3"></button>
+    <button aria-label="Image 4"></button>
+  </div>
+</div>
 
       <div class="product-info">
 
@@ -254,5 +296,29 @@
 
   <script src="../assets/script.js" defer></script>
 
-</body>
+<script>
+  const carousel = document.getElementById('hinataCarousel');
+  const dots = document.querySelectorAll('#hinataDots button');
+
+  function updateDots() {
+    const index = Math.round(
+      carousel.scrollLeft / carousel.clientWidth
+    );
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  carousel.addEventListener('scroll', updateDots);
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      carousel.scrollTo({
+        left: index * carousel.clientWidth,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script></body>
 </html>
