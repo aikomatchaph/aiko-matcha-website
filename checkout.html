@@ -590,14 +590,11 @@
             Please use it when sending your payment confirmation.
           </p>
 
-          <button class="checkout-button" type="submit" disabled>
-            Place Order — Coming Soon
-          </button>
+         <p id="order-status" class="checkout-note" role="status" aria-live="polite"></p>
 
-          <p class="checkout-note">
-            Online order submission will be enabled once the secure order
-            notification system is connected.
-          </p>
+<button class="checkout-button" type="submit" id="place-order-button">
+  Place Order
+</button>
 
         </form>
       </div>
@@ -643,7 +640,9 @@
 
   <script>
     (function () {
-      const money = amount =>
+  const ORDER_API_URL = "https://script.google.com/macros/s/AKfycbxHSBlyzJsV_UqV1l9hrVLX0_U_iWQZd6nCIoSzkBBUQT1j6DzD1nTg5sIACSN_rQC_kQ/exec";
+
+  const money = amount =>
         new Intl.NumberFormat('en-PH', {
           style: 'currency',
           currency: 'PHP'
@@ -740,12 +739,95 @@
 
       updateTotal();
 
-      document.getElementById('checkout-form').addEventListener(
-        'submit',
-        function (event) {
-          event.preventDefault();
-        }
-      );
+      const checkoutForm = document.getElementById('checkout-form');
+const placeOrderButton = document.getElementById('place-order-button');
+const orderStatus = document.getElementById('order-status');
+
+checkoutForm.addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  // Check all required fields.
+  if (!checkoutForm.reportValidity()) {
+    return;
+  }
+
+  const selectedShipping = document.querySelector(
+    'input[name="shipping"]:checked'
+  );
+
+  const selectedPayment = document.querySelector(
+    'input[name="payment"]:checked'
+  );
+
+  if (!selectedShipping || !selectedPayment) {
+    orderStatus.textContent =
+      'Please select your shipping and payment methods.';
+    return;
+  }
+
+  const shippingFee = Number(selectedShipping.value);
+
+  const orderData = {
+    fullName: document.getElementById('customer-name').value.trim(),
+    email: document.getElementById('customer-email').value.trim(),
+    mobile: document.getElementById('customer-phone').value.trim(),
+    address: document.getElementById('customer-address').value.trim(),
+    city: document.getElementById('customer-city').value.trim(),
+    province: document.getElementById('customer-province').value.trim(),
+    postalCode: document.getElementById('customer-postal').value.trim(),
+    shippingMethod: selectedShipping.dataset.label,
+    shippingFee: shippingFee,
+    paymentMethod: selectedPayment.value,
+    items: cart,
+    subtotal: subtotal,
+    total: subtotal + shippingFee,
+    notes: document.getElementById('customer-notes').value.trim()
+  };
+
+  placeOrderButton.disabled = true;
+  placeOrderButton.textContent = 'Submitting Order...';
+  orderStatus.textContent = 'Please wait while we submit your order.';
+
+  try {
+    const response = await fetch(ORDER_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(orderData)
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      throw new Error(result.message || 'Unable to submit your order.');
+    }
+
+    orderStatus.textContent =
+      'Thank you! Your order number is ' + result.orderNumber +
+      '. Please save this number and send your payment confirmation.';
+
+    orderStatus.style.color = '#173D23';
+
+    placeOrderButton.textContent = 'Order Submitted';
+
+    // Clear cart only after successful submission.
+    localStorage.removeItem('aikoCart');
+
+    updateCartCount();
+
+  } catch (error) {
+    console.error('Order submission error:', error);
+
+    orderStatus.textContent =
+      'We could not confirm your order submission. Please contact us at aikomatchaph@gmail.com before trying again, so we can check whether your order was received.';
+
+    orderStatus.style.color = '#a33';
+
+    placeOrderButton.disabled = false;
+    placeOrderButton.textContent = 'Try Again';
+  }
+});
     })();
   </script>
 
