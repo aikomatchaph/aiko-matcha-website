@@ -746,10 +746,18 @@ const orderStatus = document.getElementById('order-status');
 checkoutForm.addEventListener('submit', async function (event) {
   event.preventDefault();
 
-  // Check all required fields.
-  if (!checkoutForm.reportValidity()) {
-    return;
-  }
+ // Check all required fields.
+if (!checkoutForm.reportValidity()) {
+  return;
+}
+
+// Prevent checkout if the cart is empty.
+if (!cart || cart.length === 0) {
+  orderStatus.textContent =
+    'Your cart is empty. Please add a product before placing your order.';
+  orderStatus.style.color = '#a33';
+  return;
+}
 
   const selectedShipping = document.querySelector(
     'input[name="shipping"]:checked'
