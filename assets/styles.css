@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
   --cream: #ffffff;
@@ -11,11 +11,10 @@
   --white: #ffffff;
 
   --serif: 'Montserrat', sans-serif;
-  --sans: 'Source Sans 3', sans-serif;
+  --sans: 'DM Sans', sans-serif;
   --font-main: 'Montserrat', sans-serif;
-  --font-body: 'Source Sans 3', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
-
 /* GENERAL */
 
 * {
