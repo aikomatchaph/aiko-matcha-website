@@ -9,10 +9,10 @@
   --muted: #666666;
   --line: #e5e5e5;
   --white: #ffffff;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'DM Sans', Arial, sans-serif;
+  --serif: 'Poppins', sans-serif;
+  --sans: 'Roboto', sans-serif;
   --font-main: 'Poppins', sans-serif;
---font-body: 'Roboto', sans-serif;
+  --font-body: 'Roboto', sans-serif;
 }
 
 /* GENERAL */
@@ -29,7 +29,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--deep);
-  font-family: var(--sans);
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.65;
 }
@@ -44,6 +44,7 @@ input,
 textarea,
 select {
   font: inherit;
+  font-family: var(--font-body);
 }
 
 /* ANNOUNCEMENT BAR */
@@ -193,27 +194,51 @@ select {
 
 h1,
 h2,
-h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  line-height: 1.12;
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 h1 {
-  font-size: clamp(42px, 6vw, 76px);
+  font-size: clamp(30px, 3.5vw, 48px);
   margin: 18px 0;
 }
 
 h2 {
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(25px, 3vw, 36px);
   margin: 0 0 20px;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 19px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+p,
+li,
+label,
+.price,
+.note {
+  font-family: var(--font-body);
 }
 
 .lead {
+  font-family: var(--font-body);
   font-size: 16px;
   color: var(--muted);
   max-width: 530px;
@@ -229,6 +254,7 @@ h3 {
   background: var(--green);
   color: white;
   border: 1px solid var(--green);
+  font-family: var(--font-body);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -360,7 +386,8 @@ h3 {
 }
 
 .product-meta h3 {
-  font-size: 22px;
+  font-size: 19px;
+  font-weight: 500;
   margin: 0 0 3px;
 }
 
@@ -441,7 +468,7 @@ h3 {
 }
 
 .product-info h1 {
-  font-size: 54px;
+  font-size: clamp(30px, 3.5vw, 42px);
 }
 
 .product-info .price {
@@ -566,6 +593,7 @@ h3 {
   background: var(--green);
   color: #fff;
   border: 1px solid var(--green);
+  font-family: var(--font-body);
   font-size: 10px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -623,6 +651,7 @@ h3 {
   color: white;
   text-align: center;
   text-decoration: none;
+  font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 2px;
 }
@@ -707,7 +736,7 @@ h3 {
   }
 
   .product-meta h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .split,
@@ -727,7 +756,7 @@ h3 {
   }
 
   .product-info h1 {
-    font-size: 44px;
+    font-size: 30px;
   }
 
   .footer-grid {
@@ -763,41 +792,4 @@ h3 {
   display: block;
   margin: 0 auto;
   object-fit: contain;
-}
-/* =========================
-   AIKŌ TYPOGRAPHY
-========================= */
-
-/* Body and general text */
-body {
-  font-family: var(--font-body);
-}
-
-/* Main headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-main);
-}
-
-/* Main heading sizes */
-h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 500;
-}
-
-h2 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 500;
-}
-
-h3 {
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
-  font-weight: 500;
-}
-
-/* Buttons and form elements */
-button,
-input,
-textarea,
-select {
-  font-family: var(--font-body);
 }
