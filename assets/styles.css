@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
 :root {
   --cream: #ffffff;
@@ -9,10 +9,11 @@
   --muted: #666666;
   --line: #e5e5e5;
   --white: #ffffff;
-  --serif: 'Poppins', sans-serif;
-  --sans: 'Roboto', sans-serif;
-  --font-main: 'Poppins', sans-serif;
-  --font-body: 'Roboto', sans-serif;
+
+  --serif: 'Montserrat', sans-serif;
+  --sans: 'Source Sans 3', sans-serif;
+  --font-main: 'Montserrat', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
 }
 
 /* GENERAL */
