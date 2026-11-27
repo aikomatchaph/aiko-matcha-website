@@ -50,3 +50,9 @@ This GitHub Pages website is separate from Shopify. It does not sync inventory, 
 ## Brand color palette
 
 The site uses the palette from the existing AIKŌ Matcha Shopify collection page: white `#FFFFFF`, deep green `#405B43`, ink `#263329`, soft sage `#E8ECE3`, warm cream `#F8F7F1`, muted text `#777D72`, and light borders `#E6E6DE`. Shared colors are controlled in `assets/styles.css` under `:root`.
+
+
+Holiday Sets page: each bundle has a View Details panel with a touch-swipe photo gallery, desktop arrows/dots, quantity selection, and Add to Cart using the existing aikoCart checkout flow. Bundle photos are stored in assets/holiday/.
+
+
+Holiday Sets page: each bundle has a View Details panel with a touch-swipe photo gallery, desktop arrows/dots, quantity selection, and Add to Cart using the existing aikoCart checkout flow. Bundle photos are stored in assets/holiday/.
