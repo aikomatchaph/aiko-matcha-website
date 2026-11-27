@@ -778,10 +778,25 @@
       const checkoutForm = document.getElementById('checkout-form');
       const placeOrderButton = document.getElementById('place-order-button');
       const orderStatus = document.getElementById('order-status');
+const HOLIDAY_LAUNCH_AT = new Date('2026-12-01T00:00:00+08:00').getTime();
 
+const HOLIDAY_BUNDLE_NAMES = [
+  'Evergreen Duo',
+  'Winter Duo',
+  'Christmas Classic'
+];
       checkoutForm.addEventListener('submit', async function (event) {
         event.preventDefault();
+  const hasHolidayBundle = cart.some(item =>
+    HOLIDAY_BUNDLE_NAMES.includes(item.name)
+  );
 
+  if (hasHolidayBundle && Date.now() < HOLIDAY_LAUNCH_AT) {
+    orderStatus.textContent =
+      'Holiday Sets will be available for purchase starting December 1, 2026.';
+    orderStatus.style.color = '#a33';
+    return;
+  }
         if (!checkoutForm.reportValidity()) {
           return;
         }
